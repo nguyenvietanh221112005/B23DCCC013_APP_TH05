@@ -7,9 +7,13 @@ type Props = {
   initials: string;
   size?: number;
   online?: boolean;
+  // Ghi đè màu, ví dụ avatar trắng trên header xanh
+  bg?: string;
+  fg?: string;
 };
 
-const Avatar: React.FC<Props> = ({ name, initials, size = 48, online }) => {
+// Avatar ô vuông bo góc, chấm online cũng vuông bo góc
+const Avatar: React.FC<Props> = ({ name, initials, size = 48, online, bg, fg }) => {
   const palette = avatarColorFor(name);
   const dotSize = Math.max(10, Math.round(size * 0.26));
 
@@ -17,19 +21,16 @@ const Avatar: React.FC<Props> = ({ name, initials, size = 48, online }) => {
     <View style={{ width: size, height: size }}>
       <View
         style={[
-          styles.circle,
+          styles.box,
           {
             width: size,
             height: size,
-            borderRadius: size / 2,
-            backgroundColor: palette.bg,
+            borderRadius: Math.round(size * 0.3),
+            backgroundColor: bg ?? palette.bg,
           },
         ]}>
         <Text
-          style={[
-            styles.initials,
-            { color: palette.fg, fontSize: size * 0.36 },
-          ]}>
+          style={[styles.initials, { color: fg ?? palette.fg, fontSize: size * 0.34 }]}>
           {initials}
         </Text>
       </View>
@@ -40,9 +41,9 @@ const Avatar: React.FC<Props> = ({ name, initials, size = 48, online }) => {
             {
               width: dotSize,
               height: dotSize,
-              borderRadius: dotSize / 2,
-              right: 0,
-              bottom: 0,
+              borderRadius: Math.round(dotSize * 0.3),
+              right: -2,
+              bottom: -2,
             },
           ]}
         />
@@ -52,18 +53,18 @@ const Avatar: React.FC<Props> = ({ name, initials, size = 48, online }) => {
 };
 
 const styles = StyleSheet.create({
-  circle: {
+  box: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   initials: {
-    fontWeight: '700',
+    fontWeight: '800',
   },
   dot: {
     position: 'absolute',
     backgroundColor: colors.online,
     borderWidth: 2,
-    borderColor: colors.background,
+    borderColor: colors.white,
   },
 });
 

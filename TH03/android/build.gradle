@@ -19,3 +19,13 @@ buildscript {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+// @react-native-community/geolocation dùng buildConfigField nhưng không bật
+// buildFeatures.buildConfig, mà AGP 9 tắt tính năng này theo mặc định
+subprojects { subproject ->
+    if (subproject.name == "react-native-community_geolocation") {
+        subproject.plugins.withId("com.android.library") {
+            subproject.android.buildFeatures.buildConfig = true
+        }
+    }
+}

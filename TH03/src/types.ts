@@ -1,45 +1,40 @@
-export type Message = {
-  id: string;
-  text: string;
-  time: string;
-  fromMe: boolean;
-};
-
-export type Conversation = {
+export type AppUser = {
   id: string;
   name: string;
-  initials: string;
+  email: string;
+  online: boolean;
+  lastSeen?: number;
+  createdAt?: number;
+};
+
+export type MessageType = 'text' | 'location';
+
+export type ChatMessage = {
+  id: string;
+  senderId: string;
+  type: MessageType;
+  text?: string;
+  latitude?: number;
+  longitude?: number;
+  createdAt: number;
+};
+
+// Một dòng trong userChats/{uid}/{otherUid}
+export type ChatSummary = {
+  userId: string;
   lastMessage: string;
-  time: string;
-  unreadCount: number;
-  online: boolean;
-  statusText: string;
-  messages: Message[];
+  lastSenderId?: string;
+  lastTime: number;
+  unread: number;
 };
 
-export type Contact = {
-  id: string;
-  name: string;
-  initials: string;
-  online: boolean;
-  statusText: string;
-  conversationId: string;
-};
-
-export type NotificationKind = 'message' | 'friend' | 'system';
-
+// Sinh ra từ userChats: mỗi người đã nhắn tới mình là một thông báo
 export type AppNotification = {
   id: string;
-  kind: NotificationKind;
+  userId: string;
+  userName: string;
   content: string;
-  time: string;
+  preview: string;
+  time: number;
   read: boolean;
-};
-
-export type User = {
-  name: string;
-  username: string;
-  email: string;
-  phone: string;
-  joinedDate: string;
 };

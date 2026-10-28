@@ -1,27 +1,30 @@
 export const colors = {
-  background: '#F4F0E6',
-  card: '#FFFFFF',
-  border: '#E8E2D4',
-  primary: '#1E6F54',
-  primaryDark: '#15523D',
-  primaryLight: '#DCEFE6',
-  text: '#1A1A1A',
-  textMuted: '#8C8C84',
-  textLight: '#A6A69C',
-  online: '#3BBE6E',
-  unread: '#C0392B',
-  unreadBg: '#C0392B',
-  danger: '#C0392B',
+  background: '#FFFFFF',
+  surface: '#F1F8F3', // ô nhập, bong bóng chat của người kia
+  unreadBg: '#E3F5EA', // tin nhắn / thông báo chưa đọc
+  border: '#DDEBE2',
+  primary: '#0E8A45',
+  primaryDark: '#0A6E37',
+  primaryLight: '#E3F5EA',
+  accent: '#FFD84D',
+  dark: '#0F1A14', // nút chính trên nền trắng, avatar hồ sơ
+  text: '#0F1A14',
+  textMuted: '#5F6F65',
+  textLight: '#97A69D',
+  online: '#0E8A45',
+  unread: '#0E8A45',
+  danger: '#D6455D',
+  dangerBorder: '#F2C4CD',
+  tabBadge: '#E5484D',
   white: '#FFFFFF',
 };
 
 export const avatarPalette = [
-  { bg: '#C7E8D4', fg: '#2E7D53' },
-  { bg: '#D9CFF2', fg: '#6B4FA0' },
-  { bg: '#F6D9B5', fg: '#B5712B' },
-  { bg: '#CFE0F6', fg: '#3568A8' },
-  { bg: '#F3E6AE', fg: '#9C7F1B' },
-  { bg: '#F6CEDB', fg: '#B84F6E' },
+  { bg: '#E3F5EA', fg: '#0E8A45' },
+  { bg: '#ECE6FB', fg: '#5B3FB0' },
+  { bg: '#FFF1BF', fg: '#8A6A00' },
+  { bg: '#FDE4E8', fg: '#B23A52' },
+  { bg: '#E2EEFB', fg: '#2F62A8' },
 ];
 
 export const avatarColorFor = (seed: string) => {
